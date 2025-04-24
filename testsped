@@ -1,0 +1,17 @@
+-- Load Kevo UI Library
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/KevoUI/KevoUI/main/KevoUI.lua"))()
+
+-- Create the UI window
+local ui = library:CreateWindow("Speed Adjuster")
+
+-- Create a tab in the window
+local tab = ui:CreateTab("Speed Control")
+
+-- Create a slider to adjust the walk speed
+local speedSlider = tab:CreateSlider("Walk Speed", 16, 500, 16, function(value)
+    -- Adjust the player’s walk speed when the slider is changed
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+
+-- Set the default speed on start
+speedSlider:SetValue(16)
